@@ -12,9 +12,9 @@ const app_controller_1 = require("./app.controller");
 const axios_1 = require("@nestjs/axios");
 const terminus_1 = require("@nestjs/terminus");
 const app_service_1 = require("./app.service");
-const data_source_1 = require("./data-source");
-const Iot_module_1 = require("./search/Iot.module");
-const rabbitmq_module_1 = require("./rabbitmq.module");
+const signal_module_1 = require("./signal/signal.module");
+const mongoose_1 = require("@nestjs/mongoose");
+const rabbitmq_module_1 = require("./rabbitmq/rabbitmq.module");
 let AppModule = class AppModule {
     configure(consumer) {
     }
@@ -23,10 +23,10 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            data_source_1.TypeOrmConfigModule,
+            mongoose_1.MongooseModule.forRoot('mongodb://localhost:27017/iot'),
             terminus_1.TerminusModule,
             axios_1.HttpModule,
-            Iot_module_1.IotModule,
+            signal_module_1.SignalModule,
             rabbitmq_module_1.RabbitMQModule,
         ],
         controllers: [app_controller_1.AppController],

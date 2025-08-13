@@ -9,13 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.XRayEntry = void 0;
-const class_validator_1 = require("class-validator");
-class XRayEntry {
+exports.SaveSignalDto = void 0;
+const swagger_1 = require("@nestjs/swagger");
+class DataEntry {
 }
-exports.XRayEntry = XRayEntry;
 __decorate([
-    (0, class_validator_1.IsArray)(),
+    (0, swagger_1.ApiProperty)({ example: 23739 }),
+    __metadata("design:type", Number)
+], DataEntry.prototype, "timestamp", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ type: [Number], example: [51.33986133333333, 12.338946833333333, 1.131572] }),
     __metadata("design:type", Array)
-], XRayEntry.prototype, "data", void 0);
+], DataEntry.prototype, "location", void 0);
+class Payload {
+}
+__decorate([
+    (0, swagger_1.ApiProperty)({ type: [[Number]], example: [
+            [23739, [51.33986133333333, 12.338946833333333, 1.131572]],
+            [24740, [51.3398665, 12.338945333333333, 2.11128]]
+        ] }),
+    __metadata("design:type", Array)
+], Payload.prototype, "data", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 1735683480000 }),
+    __metadata("design:type", Number)
+], Payload.prototype, "time", void 0);
+class SaveSignalDto {
+}
+exports.SaveSignalDto = SaveSignalDto;
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: '12334333333333333' }),
+    __metadata("design:type", String)
+], SaveSignalDto.prototype, "deviceId", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Payload)
+], SaveSignalDto.prototype, "payload", void 0);
 //# sourceMappingURL=serviceReport.js.map
